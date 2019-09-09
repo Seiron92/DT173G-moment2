@@ -9,6 +9,8 @@ Don't forget to init git, create .gitignore and add node_modules in this file.
 Install all (npm)packages (minify, etc) and declaire them.
 
 execute with: npm run gulp
+
+IF REGULAR GIT PUSH DOESN'T WORK : git push -f origin master
 */
 
 const { src, dest, series, parallel } = require("gulp");
