@@ -29,6 +29,8 @@ Jag får väll trösta mig med att många haft problem med detta och att denna l
 
 Denna extension finns bara för chrome men snarlika finns för webbläsare som Firefox, Edge och Safari (googla: webbläsarens namn + livereload extension).
 
+Av någon anledning är denna livereload "ett knapptryck efter" och uppdateras inte instant. Jag har testat att lägga in pipsen och callet på olika positioner i sina tasks i koden men har inte lyckats lösa problemet. 
+
 ## *Beskrivning av systemet*
 
 Systemet startas (efter hämtning) genom att skriva "npm install" i terminalen.
