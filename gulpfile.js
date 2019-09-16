@@ -9,6 +9,7 @@ Don't forget to init git, create .gitignore and add node_modules in this file.
 Install all (npm)packages (minify, etc) and declaire them.
 
 execute with: npm run gulp
+IF REGULAR GIT PUSH DOESN'T WORK : git push -f origin master
 */
 
 const {src, dest, series, parallel} = require("gulp");
@@ -18,7 +19,7 @@ const watch = require('gulp-watch');
 const concatCss = require('gulp-concat-css');
 const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
-const livereload = require('gulp-livereload');
+const browserSync = require('browser-sync').create()
 // SÖKVÄGAR
 const files = {
     htmlPath: "src/**/*.html",
@@ -32,7 +33,7 @@ imgPath :"src/images"
 function copyHTML(){
     
     return src(files.htmlPath)
-    .pipe(livereload())
+    .pipe(browserSync.stream())
     .pipe(dest("pub")
    
     );
@@ -42,7 +43,7 @@ function copyHTML(){
 
 function jsTask(){
     return src(files.jsPath)
-    .pipe(livereload())
+    .pipe(browserSync.stream())
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(dest('pub/js')
@@ -54,7 +55,7 @@ function jsTask(){
 
 function cssTask(){
     return src(files.cssPath)
-    .pipe(livereload())
+    .pipe(browserSync.stream())
  .pipe(concatCss("css/main.css"))
  .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(dest('pub')
@@ -64,20 +65,23 @@ function cssTask(){
 
 function imgsPath() {
     return src(files.imgPath)
-    .pipe(livereload())
+    .pipe(browserSync.stream())
         .pipe(imagemin())
         .pipe(dest('pub')
-
         );
 }
 
 
 // TASK : watcher
 function watchTask() {
-    
+    browserSync.init({
+        server: {
+            baseDir: 'pub/'
+        }
+    });
+
     watch([files.htmlPath, files.jsPath, files.cssPath, files.imgPath],
         parallel(copyHTML, jsTask, cssTask, imgsPath),
-        livereload.listen()
         
     );
 }
