@@ -11,7 +11,8 @@ Jag har valt ann använda följande:
 * gulp-concat-css (https://www.npmjs.com/package/gulp-concat-css)
 * gulp-watch (https://www.npmjs.com/package/watch)
 * gulp-imagemin (https://www.npmjs.com/package/gulp-imagemin)
-* gulp-livereload (https://www.npmjs.com/package/gulp-livereload?fbclid=IwAR3_gixo4fMoAyzDtbmkI2LS7kpkfimaFSrfrDom-MvEtw2MhdOBakMU6HY)
+* (gulp-livereload (https://www.npmjs.com/package/gulp-livereload?fbclid=IwAR3_gixo4fMoAyzDtbmkI2LS7kpkfimaFSrfrDom-MvEtw2MhdOBakMU6HY))
+* Browsersync (https://www.browsersync.io/docs) OBS! Ersätter gulp-livereload
 
 Concat och uglify-es visades i föreläsningen så jag valde dem för att concata och komprimera, 
 eftersom de användes i exemplet så antog jag att dessa paket var av god kvalité.
@@ -20,16 +21,20 @@ Clean-css och concat-css används för att komprimera och concata css-filer
 
 Watch fick jag installera eftersom jag fick ett felmeddelande om att dte inte var ett "känt kommando" och en watch behövde jag. 
 
-Gällande live reloads testade jag lite olika (utan någon direkt framgång), hur jag än gjorde så fungerade inget, 
+**Gulp-livereload**
+*(Gällande live reloads testade jag lite olika (utan någon direkt framgång), hur jag än gjorde så fungerade inget, 
 livereload fungerade i terminalen (vid varje uppdatering stod det att filerna hade reloadats) så jag valde den men fick det inte att fungera i
 webbläsaren. Efter en hel del googlande hittade jag att man var tvungen att 
 installera ett tillägg i webbläsaren (https://chrome.google.com/webstore/detail/live-reload/jcejoncdonagmfohjcdgohnmecaipidc), efter det var gjort fungerade
 allt. På något vis känns det inte rätt, eller ja, som om att det inte borde behövas om man gör "rätt" så något galet har jag nog gjort.
-Jag får väll trösta mig med att många haft problem med detta och att denna lösning åtmnståne fungerar. 
+Jag får väll trösta mig med att många haft problem med detta och att denna lösning åtmnståne fungerar.* 
 
-Denna extension finns bara för chrome men snarlika finns för webbläsare som Firefox, Edge och Safari (googla: webbläsarens namn + livereload extension).
+*Denna extension finns bara för chrome men snarlika finns för webbläsare som Firefox, Edge och Safari (googla: webbläsarens namn + livereload extension).*
 
-Av någon anledning är denna livereload "ett knapptryck efter" och uppdateras inte instant. Jag har testat att lägga in pipsen och callet på olika positioner i sina tasks i koden men har inte lyckats lösa problemet. 
+*Av någon anledning är denna livereload "ett knapptryck efter" och uppdateras inte instant. Jag har testat att lägga in pipsen och callet på olika positioner i sina tasks i koden men har inte lyckats lösa problemet.)* 
+
+**Browsersync**
+Jag valde att ersätta Gulp-liverload med det alternativ Mattias tipsade om i klassens forum. Detta verkar vara betydligt smidigare och ligger inte "ett knapptryck efter". 
 
 ## *Beskrivning av systemet*
 
